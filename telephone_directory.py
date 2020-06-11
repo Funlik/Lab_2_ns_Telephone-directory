@@ -100,7 +100,7 @@ def clear_sheet():
 
 def fetchChr(ch):
     global activCh, typeRec, lab1
-    saveRec()
+   # saveRec()
     typeRec = ''
     activCh = ch
     lab1.config(text=activCh)
@@ -186,7 +186,7 @@ def fetchFind():
 def saveRec():
     global typeRec
     for i in range(1, 26):
-        key = entriesRec['keyRec' + str(i)].get()
+       # key = entriesRec['keyRec' + str(i)].get()
         if entriesRec['delR' + str(i)].get() == 'd':
             continue
         elif key:
@@ -228,5 +228,5 @@ if __name__ == '__main__':
     t1.loadBook()
 
    # window = makeWidgets()
-    fetchChr('А')
-  #  window.mainloop()
+   # fetchChr('А')
+   # window.mainloop()
