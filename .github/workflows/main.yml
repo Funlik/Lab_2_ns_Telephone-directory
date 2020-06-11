@@ -1,18 +1,19 @@
-name: CI-CD-pipeline
-
 on:
-  push:
-    branches:
-     -master
-      
+ push:
+   branches:
+     - master
+   tags:
+     - "*telephone directory*"
+name: "Continuous Deployment"# Объявляем Jobs
 jobs:
- my_ci_part:
-    runs-on: ubuntu-latest
-    
-    steps:
-      - name: Git clone our repo
-        uses: actions/checkout@v2
-        
-      - name: Run a one-line script
+ build:
+   name: "Build and deploy"
+   runs-on: ubuntu-latest 
 
+   env:
+     DOCKER_IMAGE: Funlik/Lab_2_ns_Telephone-directory
+     
+   steps:
+   - name: "Checkout"
+     uses: actions/checkout@v1
 
