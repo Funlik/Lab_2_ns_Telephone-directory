@@ -8,7 +8,7 @@ name: "Continuous Deployment"
 jobs:
  build:
    name: "Build and deploy"
-   runs-on: docker-latest
+   runs-on: ubuntu-latest
      
    steps:
    - name: "Checkout"
