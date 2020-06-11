@@ -25,13 +25,13 @@ jobs:
      
    - name: Configure my DOCKER Credentials
      uses: lab_2_ns_Telephone-directory/configure-lab_2_ns_Telephone-directory-credentials@v1
-      with:
-      docker-access-key-id    : ${{ secret.DOCKER_PASSWORD }}
-      docker-secret-access-key: ${{ secret.MY_ACCESS_SECRET }}
-      docker-region           : ${{ env.DOCKER_REGION_NAME }}
+     with:
+       docker-access-key-id    : ${{ secret.DOCKER_PASSWORD }}
+       docker-secret-access-key: ${{ secret.MY_ACCESS_SECRET }}
+       docker-region           : ${{ env.DOCKER_REGION_NAME }}
       
-    - name: Copy Deployment package to Docker hub
-      run: docker ${{ env.DEPLOY_PACKAGE_NAME }} docker://${{ env.EB_PACKAGE_DOCKER_NAME }}/
+   - name: Copy Deployment package to Docker hub
+     run: docker ${{ env.DEPLOY_PACKAGE_NAME }} docker://${{ env.EB_PACKAGE_DOCKER_NAME }}/
       
       
      
