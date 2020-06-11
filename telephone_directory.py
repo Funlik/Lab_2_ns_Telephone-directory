@@ -37,53 +37,53 @@ dicRem = {}
 
 
 # Кнопочки и все остальное
-def makeWidgets():
-    global entriesRec, entRec, lab1
-    entRec = {}
-    window = Tk()
-    window.title('Phone directory')
-    window.geometry('1260x600+0+0')
-    form1 = Frame(window)
-    form1.pack()
-    lab1 = Label(form1, text=activCh, fg="#eee", bg="#333", width=5)
-    lab1.pack(side=LEFT)
-    Label(form1, text='  ', width=30).pack(side=LEFT)
-    alpha = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R",
-             "S", "T", "U", "V", "W", "X", "Y", "Z"]
-    for i in range(len(alpha)):
-        Button(form1, text=alpha[i], command=(lambda x=alpha[i]: fetchChr(x))).pack(side=LEFT)
-    ent = Entry(form1, width=27)
-    ent.pack(side=LEFT)
-    entRec['entFind'] = ent
-    Button(form1, text="Find", command=fetchFind).pack(side=LEFT)
+#def makeWidgets():
+  #  global entriesRec, entRec, lab1
+   # entRec = {}
+   # window = Tk()
+   # window.title('Phone directory')
+   # window.geometry('1260x600+0+0')
+   # form1 = Frame(window)
+   # form1.pack()
+   # lab1 = Label(form1, text=activCh, fg="#eee", bg="#333", width=5)
+   # lab1.pack(side=LEFT)
+   # Label(form1, text='  ', width=30).pack(side=LEFT)
+   # alpha = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R",
+   #          "S", "T", "U", "V", "W", "X", "Y", "Z"]
+   # for i in range(len(alpha)):
+   #     Button(form1, text=alpha[i], command=(lambda x=alpha[i]: fetchChr(x))).pack(side=LEFT)
+   # ent = Entry(form1, width=27)
+   # ent.pack(side=LEFT)
+   # entRec['entFind'] = ent
+   # Button(form1, text="Find", command=fetchFind).pack(side=LEFT)
 
-    form2 = Frame(window)
-    form2.pack()
-    entriesRec = {}
-    for (ix, label) in enumerate(fieldnamesRec):
-        lab = Label(form2, text=label)
-        lab.grid(row=2, column=ix)
-    for i in range(1, 26):
-        for (ix, label) in enumerate(fieldnamesRec):
-            if label == 'keyRec' or label == 'char' or label == 'delR':
-                ent = Entry(form2, state='normal', width=6)
-            else:
-                ent = Entry(form2, width=40)
-            ent.grid(row=i + 2, column=ix)
-            entriesRec[label + str(i)] = ent
-    form3 = Frame(window)
-    form3.pack()
-    Button(window, text="Next page", command=fetchNext).pack()
-    Label(window, text='      ', width=10).pack(side=LEFT)
-    ent = Entry(window, width=10)
-    ent.pack(side=LEFT)
-    entRec['entKeyRec'] = ent
-    Button(window, text="Open", command=openRec).pack(side=LEFT)
-    Button(window, text="Remove", command=delKeyRec).pack(side=LEFT)
-    Label(window, text='      ', width=30).pack(side=LEFT)
-    Label(window, text='      ', width=20).pack(side=LEFT)
-    Button(window, text="Quit", command=fin).pack(side=LEFT)
-    return window
+   # form2 = Frame(window)
+   # form2.pack()
+   # entriesRec = {}
+   # for (ix, label) in enumerate(fieldnamesRec):
+    #    lab = Label(form2, text=label)
+    #    lab.grid(row=2, column=ix)
+   # for i in range(1, 26):
+   #     for (ix, label) in enumerate(fieldnamesRec):
+   #         if label == 'keyRec' or label == 'char' or label == 'delR':
+   #             ent = Entry(form2, state='normal', width=6)
+   #         else:
+   #             ent = Entry(form2, width=40)
+   #         ent.grid(row=i + 2, column=ix)
+   #         entriesRec[label + str(i)] = ent
+   # form3 = Frame(window)
+   # form3.pack()
+   # Button(window, text="Next page", command=fetchNext).pack()
+   # Label(window, text='      ', width=10).pack(side=LEFT)
+   # ent = Entry(window, width=10)
+   # ent.pack(side=LEFT)
+   # entRec['entKeyRec'] = ent
+   # Button(window, text="Open", command=openRec).pack(side=LEFT)
+   # Button(window, text="Remove", command=delKeyRec).pack(side=LEFT)
+   # Label(window, text='      ', width=30).pack(side=LEFT)
+   # Label(window, text='      ', width=20).pack(side=LEFT)
+   # Button(window, text="Quit", command=fin).pack(side=LEFT)
+   # return window#\
 
 
 # Чистый лист
