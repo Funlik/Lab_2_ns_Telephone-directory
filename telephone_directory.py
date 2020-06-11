@@ -227,6 +227,6 @@ if __name__ == '__main__':
     t1 = PhoneBook("Телефоны")
     t1.loadBook()
 
-    window = makeWidgets()
+   # window = makeWidgets()
     fetchChr('А')
-    window.mainloop()
+  #  window.mainloop()
