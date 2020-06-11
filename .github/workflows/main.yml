@@ -11,9 +11,13 @@ jobs:
    runs-on: ubuntu-latest 
 
    env:
-     DOCKER_IMAGE: Funlik/Lab_2_ns_Telephone-directory
+     DEPLOY_PACKAGE_NAME: flask_app_${{ github.sha }}.zip
+     DOCKER_IMAGE       : Funlik/Lab_2_ns_Telephone-directory
      
    steps:
    - name: "Checkout"
      uses: actions/checkout@v1
+     
+   - name: Create ZIP deployment package
+     run: zip -r ${{ env.DEPLOY_PACKAGE_NAME }} ./ -x *.git*
 
