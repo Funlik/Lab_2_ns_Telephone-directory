@@ -1,6 +1,6 @@
-FROM python:3-alpine
+FROM python:latest
 
-COPY * /apps/subredditfetcher/
-WORKDIR /apps/subredditfetcher/
+WORKDIR /app
+COPY .telephone_directory.py
 
-CMD ["python", "telephone dorectory.py"]
+CMD ["python", "telephone_directory.py"]
