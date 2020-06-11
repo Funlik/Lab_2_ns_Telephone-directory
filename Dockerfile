@@ -1,6 +1,6 @@
 FROM python:latest
 
 WORKDIR /app
-COPY * /app/telephone_directory.py
+COPY * /app
 
 CMD ["python", "telephone_directory.py"]
