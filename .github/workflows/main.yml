@@ -11,8 +11,10 @@ jobs:
    runs-on: ubuntu-latest 
 
    env:
-     DEPLOY_PACKAGE_NAME: flask_app_${{ github.sha }}.zip
-     DOCKER_IMAGE       : Funlik/Lab_2_ns_Telephone-directory
+     EB_PACKAGE_DOCKER_NAME: ad7fc8d193fd22de49c56218838aac98febaa05ce91037b23e58e74e521d6829 
+     DOCKER_REGION_NAME    : us-west-2  
+     DEPLOY_PACKAGE_NAME   : flask_app_${{ github.sha }}.zip
+     DOCKER_IMAGE          : Funlik/Lab_2_ns_Telephone-directory
      
    steps:
    - name: "Checkout"
@@ -20,4 +22,18 @@ jobs:
      
    - name: Create ZIP deployment package
      run: zip -r ${{ env.DEPLOY_PACKAGE_NAME }} ./ -x *.git*
+     
+   - name: Configure my DOCKER Credentials
+     uses: lab_2_ns_Telephone-directory/configure-lab_2_ns_Telephone-directory-credentials@v1
+      with:
+      docker-access-key-id    : ${{ secret.DOCKER_PASSWORD }}
+      docker-secret-access-key: ${{ secret.MY_ACCESS_SECRET }}
+      docker-region           : ${{ env.DOCKER_REGION_NAME }}
+      
+    - name: Copy Deployment package to Docker hub
+      run: docker ${{ env.DEPLOY_PACKAGE_NAME }} docker://${{ env.EB_PACKAGE_DOCKER_NAME }}/
+      
+      
+     
+     
 
